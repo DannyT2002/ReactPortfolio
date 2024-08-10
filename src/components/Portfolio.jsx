@@ -1,14 +1,19 @@
-import React from 'react';
-import Project from './Project';
+import React from "react";
+import Project from "./Project";
 
 const projects = [
-  { title: 'Project 1', image: 'project1.png', deployedLink: 'https://project1.com', repoLink: 'https://github.com/yourusername/project1' },
+  { 
+    title: 'Note Taker', 
+    image: '/assets/noteTakerImageForPortfolio.jpg',  // Absolute path from the public directory
+    deployedLink: 'https://note-taker-h3av.onrender.com/', 
+    repoLink: 'https://github.com/DannyT2002/note-taker' 
+  },
   // Add other projects here
 ];
 
 const Portfolio = () => (
   <section id="portfolio">
-    {projects.map(project => (
+    {projects.map((project) => (
       <Project key={project.title} {...project} />
     ))}
   </section>

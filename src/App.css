@@ -1,39 +1,102 @@
-/* App.css */
-.app-container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+/* Header Styles */
+header {
+  padding: 15px 6% 15px 0; /* Padding for header */
+  display: flex; /* Flexbox for header layout */
+  flex-direction: row; /* Row direction for flex items */
+  justify-content: space-between; /* Space between items */
+  align-items: center; /* Center items vertically */
+  background-color: var(--primary); /* Header background color */
+  flex-wrap: wrap; /* Allow items to wrap */
+  box-shadow: 0 5px 35px rgba(0, 0, 0, 0.2); /* Add shadow to header */
+}
+
+header h1 {
+  background-color: var(--secondary); /* Background color for header title */
+  color: var(--dark); /* Text color for header title */
+  padding: 5px 1% 5px 6%; /* Padding for header title */
+  margin: 0; /* Remove default margin */
+  font-size: 4vw; /* Responsive font size */
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; /* Font stack for header title */
+  line-height: 1; /* Line height for header title */
+}
+
+nav {
+  display: flex; /* Flexbox for nav layout */
+  flex-direction: row; /* Row direction for flex items */
+  flex-wrap: wrap; /* Allow items to wrap */
+}
+
+nav a {
+  text-decoration: none; /* Remove underline from links */
+  padding: 5px 10px; /* Padding for nav links */
+  color: var(--light); /* Text color for nav links */
+  margin: 16px; /* Margin for nav links */
+  background-image: linear-gradient(270deg, var(--secondary), var(--secondary)); /* Gradient for nav link background */
+  background-repeat: no-repeat; /* Prevent background from repeating */
+  background-size: 100% 0.2em; /* Initial size for background */
+  background-position: bottom; /* Position background at bottom */
+  transition: all 0.25s ease-in; /* Smooth transition for background size */
+  font-size: 1.4rem; /* Font size for nav links */
+}
+
+nav a:hover {
+  background-size: 100% 100%; /* Full background size on hover */
+  color: var(--dark); /* Text color on hover */
+}
+
+nav a:last-child {
+  margin-right: 0; /* Remove right margin from last nav link */
+}
+
+/* Section Styles */
+section {
+  padding: 100px 0; /* Padding for sections */
+}
+
+section h2 {
+  font-size: 2.5rem; /* Font size for section titles */
+  margin-bottom: 20px; /* Bottom margin for section titles */
+  align-self: flex-start; /* Align section titles to the start */
+  color: var(--primary); /* Text color for section titles */
+}
+
+/* Enlarge the first application */
+.applications .application:first-child {
+  height: 750px; /* Increase this value as needed */
+  width: 100%; /* Full width for first application */
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  header {
+      flex-direction: column; /* Stack header items vertically */
+      align-items: center; /* Center header items horizontally */
+      text-align: center; /* Center text in header */
   }
-  
-  .main-content {
-    flex-grow: 1;
-    padding: 20px;
-    background-color: #ffffff;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
+  header h1 {
+      font-size: 8vw; /* Responsive font size */
+      padding: 10px; /* Padding for header title */
   }
-  
-  header, footer {
-    background-color: #282c34;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
+
+  nav ul {
+      margin-top: 20px; /* Top margin for nav list */
+      display: flex; /* Flexbox for nav list */
+      flex-direction: column; /* Stack nav items vertically */
+      align-items: center; /* Center nav items horizontally */
   }
-  
-  header h1, footer p {
-    margin: 0;
+
+  nav a {
+      margin: 10px 0; /* Vertical margin for nav links */
   }
-  
-  header nav {
-    margin-top: 10px;
+
+  .profile {
+      flex-direction: column; /* Stack profile content vertically */
+      align-items: center; /* Center profile content horizontally */
   }
-  
-  header nav a {
-    margin: 0 15px;
-    font-weight: bold;
+
+  .profile img {
+      margin-right: 0; /* Remove right margin for profile image */
+      margin-bottom: 20px; /* Bottom margin for profile image */
   }
-  
-  footer p {
-    font-size: 0.8em;
-  }
-  
-  
+}
