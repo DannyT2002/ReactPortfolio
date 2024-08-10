@@ -2,7 +2,7 @@
   "name": "my-portfolio",
   "version": "1.0.0",
   "description": "My portfolio website",
-  "main": "index.jsx",
+  "main": "vite.config.js",
   "scripts": {
     "dev": "vite",
     "start": "vite",
