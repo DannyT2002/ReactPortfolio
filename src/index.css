@@ -1,8 +1,15 @@
+/* index.css */
 body {
-    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0.5em 0;
   }
   
   a {
@@ -10,9 +17,12 @@ body {
     color: inherit;
   }
   
-  .container {
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  button {
+    cursor: pointer;
   }
   
