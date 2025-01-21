@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import emailjs from 'emailjs-com';
 
 const Contact = () => {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
@@ -17,7 +18,12 @@ const Contact = () => {
     if (!form.message) newErrors.message = 'Message is required';
     setErrors(newErrors);
     if (Object.keys(newErrors).length === 0) {
-      alert('Form submitted!');
+      emailjs.sendForm('service_35o0zap', 'template_psn258q', e.target, 'S45tVE2sGbqBkBsQu')
+        .then((result) => {
+          alert('Message sent successfully!');
+        }, (error) => {
+          alert('Failed to send message, please try again later.');
+        });
     }
   };
 
@@ -36,7 +42,7 @@ const Contact = () => {
         </label>
         <label>
           Message:
-          <textarea name="message" value={form.message} onChange={handleChange} />
+          <textarea name="message" value={form.message} onChange={handleChange}></textarea>
           {errors.message && <span>{errors.message}</span>}
         </label>
         <button type="submit">Send</button>

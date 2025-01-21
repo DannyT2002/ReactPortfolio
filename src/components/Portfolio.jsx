@@ -8,6 +8,24 @@ const projects = [
     deployedLink: 'https://note-taker-h3av.onrender.com/', 
     repoLink: 'https://github.com/DannyT2002/note-taker' 
   },
+  { 
+    title: 'Note Taker', 
+    image: '/assets/noteTakerImageForPortfolio.jpg',  // Absolute path from the public directory
+    deployedLink: 'https://note-taker-h3av.onrender.com/', 
+    repoLink: 'https://github.com/DannyT2002/note-taker' 
+  },
+  { 
+    title: 'Note Taker', 
+    image: '/assets/noteTakerImageForPortfolio.jpg',  // Absolute path from the public directory
+    deployedLink: 'https://note-taker-h3av.onrender.com/', 
+    repoLink: 'https://github.com/DannyT2002/note-taker' 
+  },
+  { 
+    title: 'Note Taker', 
+    image: '/assets/noteTakerImageForPortfolio.jpg',  // Absolute path from the public directory
+    deployedLink: 'https://note-taker-h3av.onrender.com/', 
+    repoLink: 'https://github.com/DannyT2002/note-taker' 
+  },
   // Add other projects here
 ];
 

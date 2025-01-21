@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Project = ({ title, image, deployedLink, repoLink }) => (
-  <div>
+  <div classname="project">
     <h2>{title}</h2>
     <img src={image} alt={title} />
     <a href={deployedLink} target="_blank" rel="noopener noreferrer">View Deployed App</a>
