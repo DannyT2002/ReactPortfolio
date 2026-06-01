@@ -1,46 +1,50 @@
 import React from 'react';
 import useReveal from '../hooks/useReveal';
 
-const interests = [
-  'Video Games', 'Family & Friends', 'Horror Movies', 'Podcasts', 'Problem Solving', 'Design',
-];
-
 const About = () => {
   const reveal = useReveal();
 
   return (
-    <section id="about" className="section">
-      <div className="container" ref={reveal}>
-        <p className="section-eyebrow">About</p>
-        <h2 className="section-title">A bit <span className="grad">about me</span></h2>
+    <section id="about" className="section shell">
+      <div ref={reveal}>
+        <div className="chapter">
+          <span className="idx">01</span>
+          <span className="ttl">About</span>
+        </div>
 
-        <div className="about-grid">
-          <div className="about-bio">
-            <p>
-              Hello! I'm <span className="hl">Danny Torres</span>, a dedicated web
-              developer specializing in crafting intuitive and dynamic digital
-              experiences. With a strong foundation in front-end development and
-              UI/UX design, I excel at transforming complex challenges into
-              elegant solutions.
+        <div className="about__grid">
+          <div>
+            <p className="about__lead">
+              A developer who cares about the <em>details between</em> the
+              pixels — the timing of a transition, the weight of a line, the
+              feel of an interaction.
             </p>
-            <p>
-              Outside of my professional pursuits, I enjoy playing video games,
-              spending time with family and friends, and immersing myself in
-              horror movies and podcasts. I'm eager to collaborate on innovative
-              projects and drive impactful results.
-            </p>
-            <div className="interests">
-              {interests.map((i) => <span key={i}>{i}</span>)}
+            <div className="about__body">
+              <p>
+                I'm Danny Torres, a web &amp; mobile developer with a strong
+                foundation in front-end engineering and UI/UX design. I like
+                taking ambiguous, complex problems and shaping them into
+                interfaces that are clear, quick, and quietly satisfying to use.
+              </p>
+              <p>
+                Away from the screen you'll find me deep in video games, horror
+                movies and podcasts, or out with family and friends. I'm always
+                up for collaborating on something with real craft behind it.
+              </p>
             </div>
           </div>
 
-          <aside className="about-card">
-            <h3>Quick facts</h3>
-            <div className="fact"><span>Role</span><strong>Web &amp; Mobile Dev</strong></div>
-            <div className="fact"><span>Focus</span><strong>Front-end · UI/UX</strong></div>
-            <div className="fact"><span>Stack</span><strong>React · .NET · Node</strong></div>
-            <div className="fact"><span>Status</span><strong>Open to work</strong></div>
-          </aside>
+          <div className="about__side">
+            <figure className="about__portrait">
+              <img src="/assets/profile.jpg" alt="Danny Torres" />
+            </figure>
+            <dl style={{ margin: 0 }}>
+              <div className="fact"><dt>Role</dt><dd>Web &amp; Mobile Dev</dd></div>
+              <div className="fact"><dt>Focus</dt><dd>Front-end · UI/UX</dd></div>
+              <div className="fact"><dt>Stack</dt><dd>React · .NET · Node</dd></div>
+              <div className="fact"><dt>Status</dt><dd>Open to work</dd></div>
+            </dl>
+          </div>
         </div>
       </div>
     </section>

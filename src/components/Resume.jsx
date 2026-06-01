@@ -1,44 +1,40 @@
 import React from 'react';
 import useReveal from '../hooks/useReveal';
 
-const skills = [
-  { ico: '📱', name: 'Mobile Development', detail: 'SwiftUI · Flutter' },
-  { ico: '⚛️', name: 'React', detail: 'Hooks · SPA · Vite' },
-  { ico: '🗄️', name: 'Databases', detail: 'SQL Server · Postgres' },
-  { ico: '⚙️', name: 'Backend', detail: '.NET Core · Node.js' },
-  { ico: '🎨', name: 'UI / UX Design', detail: 'Responsive · Accessible' },
-  { ico: '🧩', name: 'JavaScript', detail: 'ES6+ · TypeScript' },
+const caps = [
+  { k: 'Front-end', d: 'React · Vite · ES6+ · TypeScript' },
+  { k: 'Mobile', d: 'SwiftUI · Flutter' },
+  { k: 'Back-end', d: '.NET Core · Node.js' },
+  { k: 'Data', d: 'SQL Server · PostgreSQL' },
+  { k: 'Design', d: 'UI/UX · Responsive · Accessible' },
 ];
 
 const Resume = () => {
-  const head = useReveal();
-  const grid = useReveal({ stagger: 70 });
+  const reveal = useReveal();
 
   return (
-    <section id="resume" className="section">
-      <div className="container">
-        <div ref={head}>
-          <p className="section-eyebrow">Skills</p>
-          <h2 className="section-title">What I <span className="grad">work with</span></h2>
-          <p className="section-lead">
-            A toolkit spanning front-end, back-end, mobile, and design — built to
-            ship complete products end to end.
-          </p>
+    <section id="capabilities" className="section shell">
+      <div ref={reveal}>
+        <div className="chapter">
+          <span className="idx">03</span>
+          <span className="ttl">Capabilities</span>
         </div>
 
-        <div className="skills-grid" ref={grid}>
-          {skills.map((s) => (
-            <div className="skill" key={s.name}>
-              <div className="ico">{s.ico}</div>
-              <h4>{s.name}</h4>
-              <p>{s.detail}</p>
-            </div>
+        <ul className="caps">
+          {caps.map((c, i) => (
+            <li key={c.k}>
+              <span className="ci">{String(i + 1).padStart(2, '0')}</span>
+              <span className="ck">{c.k}</span>
+              <span className="cd">{c.d}</span>
+            </li>
           ))}
-        </div>
+        </ul>
 
-        <a className="btn btn-primary" href="/DanielTorres-Resume.pdf" download>
-          ⬇ Download résumé
-        </a>
+        <div className="caps-foot">
+          <a className="btn-line" href="/DanielTorres-Resume.pdf" download>
+            Download résumé ↓
+          </a>
+        </div>
       </div>
     </section>
   );
