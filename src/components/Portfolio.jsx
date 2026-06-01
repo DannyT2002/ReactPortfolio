@@ -1,60 +1,94 @@
-import React from 'react';
-import Project from './Project';
+import React, { useRef, useState } from 'react';
 import useReveal from '../hooks/useReveal';
 
 const projects = [
   {
     title: 'Note Taker',
-    description: 'A full-stack app to write, save, and manage notes with a clean, persistent interface.',
+    role: 'Full-stack',
+    year: '2024',
     image: '/assets/noteTakerImageForPortfolio.jpg',
-    tags: ['Node.js', 'Express', 'JavaScript'],
-    deployedLink: 'https://note-taker-h3av.onrender.com/',
-    repoLink: 'https://github.com/DannyT2002/note-taker',
+    href: 'https://note-taker-h3av.onrender.com/',
   },
   {
-    title: 'Portfolio Site',
-    description: 'This very portfolio — a modern, animated React single-page app with a dark UI.',
+    title: 'Portfolio',
+    role: 'Design + Build',
+    year: '2026',
     image: '/assets/My Portfolio 1-3.png',
-    tags: ['React', 'Vite', 'CSS'],
-    deployedLink: 'https://reactportfolio-7lw8.onrender.com/',
-    repoLink: 'https://github.com/DannyT2002/reactportfolio',
+    href: 'https://reactportfolio-7lw8.onrender.com/',
   },
   {
-    title: 'UI Showcase',
-    description: 'A collection of responsive interface explorations and component design studies.',
+    title: 'UI Studies',
+    role: 'Interface',
+    year: '2025',
     image: '/assets/My Portfolio 2-3.png',
-    tags: ['UI/UX', 'React', 'Design'],
-    repoLink: 'https://github.com/DannyT2002',
+    href: 'https://github.com/DannyT2002',
   },
   {
     title: 'Mobile Concepts',
-    description: 'Cross-platform mobile prototypes exploring native-feeling layouts and flows.',
+    role: 'SwiftUI · Flutter',
+    year: '2025',
     image: '/assets/My Portfolio 3-3.png',
-    tags: ['SwiftUI', 'Flutter', 'Mobile'],
-    repoLink: 'https://github.com/DannyT2002',
+    href: 'https://github.com/DannyT2002',
   },
 ];
 
 const Portfolio = () => {
-  const head = useReveal();
-  const grid = useReveal({ stagger: 90 });
+  const reveal = useReveal();
+  const previewRef = useRef(null);
+  const [active, setActive] = useState(null);
+
+  // Move the floating preview with the cursor (direct DOM writes, no re-render).
+  const handleMove = (e) => {
+    const el = previewRef.current;
+    if (!el) return;
+    el.style.setProperty('--x', `${e.clientX}px`);
+    el.style.setProperty('--y', `${e.clientY}px`);
+  };
 
   return (
-    <section id="portfolio" className="section">
-      <div className="container">
-        <div ref={head}>
-          <p className="section-eyebrow">Work</p>
-          <h2 className="section-title">Selected <span className="grad">projects</span></h2>
-          <p className="section-lead">
-            A few things I've built — from full-stack web apps to interface and
-            mobile explorations.
-          </p>
+    <section id="work" className="section shell">
+      <div ref={reveal}>
+        <div className="chapter">
+          <span className="idx">02</span>
+          <span className="ttl">Selected Work</span>
         </div>
-        <div className="projects-grid" ref={grid}>
-          {projects.map((p) => (
-            <Project key={p.title} {...p} />
+
+        <ul
+          className="work__list"
+          onMouseMove={handleMove}
+          onMouseLeave={() => setActive(null)}
+        >
+          {projects.map((p, i) => (
+            <li
+              key={p.title}
+              className="work__row"
+              onMouseEnter={() => setActive(i)}
+            >
+              <a className="stretch" href={p.href} target="_blank" rel="noopener noreferrer" aria-label={p.title} />
+              <span className="num">{String(i + 1).padStart(2, '0')}</span>
+              <span className="title">{p.title}</span>
+              <span className="role">{p.role}</span>
+              <span className="year">{p.year}</span>
+              <span className="go">↗</span>
+              <span className="work__row-img">
+                <img src={p.image} alt={p.title} loading="lazy" />
+              </span>
+            </li>
           ))}
-        </div>
+        </ul>
+      </div>
+
+      <div
+        ref={previewRef}
+        className={`work__preview ${active !== null ? 'show' : ''}`}
+        aria-hidden="true"
+      >
+        {active !== null && (
+          <>
+            <img src={projects[active].image} alt="" />
+            <span className="cap">{projects[active].title} — {projects[active].year}</span>
+          </>
+        )}
       </div>
     </section>
   );
