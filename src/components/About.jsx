@@ -36,7 +36,7 @@ const About = () => {
 
           <div className="about__side">
             <figure className="about__portrait">
-              <img src="/assets/profile.jpg" alt="Danny Torres" />
+              <img src="/assets/portfolio.jpg" alt="Danny Torres" />
             </figure>
             <dl style={{ margin: 0 }}>
               <div className="fact"><dt>Role</dt><dd>Web &amp; Mobile Dev</dd></div>
