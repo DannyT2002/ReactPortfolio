@@ -31,7 +31,7 @@ const Resume = () => {
         </ul>
 
         <div className="caps-foot">
-          <a className="btn-line" href="/DanielTorres-Resume.pdf" download>
+          <a className="btn-line" href="/DanielTorres-Resume2026.pdf" download>
             Download résumé ↓
           </a>
         </div>
